@@ -1,0 +1,37 @@
+.clock-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.clock-outer-ring {
+  position: relative;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 2px #7a6330,
+    0 0 40px rgba(201, 168, 76, 0.18),
+    0 16px 48px rgba(0, 0, 0, 0.7),
+    inset 0 1px 0 rgba(232, 208, 144, 0.3);
+  border-radius: 50%;
+}
+
+.clock-svg {
+  display: block;
+  width: min(80vw, 320px);
+  height: min(80vw, 320px);
+}
+
+/* Bezel styling via SVG class */
+.clock-bezel {
+  stroke: #8a6f2e;
+  stroke-width: 0.5;
+}
+
+.clock-face-bg {
+  /* Handled by SVG gradient */
+}
+
+.clock-center-cap {
+  /* Handled by SVG gradient */
+}

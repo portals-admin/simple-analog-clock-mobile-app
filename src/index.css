@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-deep: #0f0f1a;
+  --bg-surface: #16162a;
+  --gold-primary: #c9a84c;
+  --gold-light: #e8d5a3;
+  --gold-dim: #7a6330;
+  --face-bg: #1a1a2e;
+  --face-rim: #252540;
+  --tick-major: #d4c08a;
+  --tick-minor: #4a4a6a;
+  --number-color: #e8d5a3;
+  --shadow-glow: rgba(201, 168, 76, 0.15);
+}
+
+html,
+body {
+  height: 100%;
+  background-color: var(--bg-deep);
+  color: var(--number-color);
+  font-family: 'Playfair Display', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

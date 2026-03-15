@@ -1,0 +1,9 @@
+.clock-number {
+  fill: #e8d5a3;
+  font-size: 16px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  user-select: none;
+  pointer-events: none;
+}
