@@ -1,0 +1,106 @@
+/* ============================================================
+   Reset & base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f0f13;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display',
+               'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ============================================================
+   App shell
+   ============================================================ */
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================================
+   Clock layout
+   ============================================================ */
+.clock-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+}
+
+#clock {
+  /*
+   * The canvas is sized via JS (resize()). We constrain the CSS display
+   * size here so it never overflows, and the canvas pixel dimensions
+   * are kept in sync with devicePixelRatio for sharp rendering on
+   * HiDPI / Retina screens.
+   */
+  display: block;
+  width: min(80vw, 80vh, 400px);
+  height: min(80vw, 80vh, 400px);
+  border-radius: 50%;
+}
+
+/* ============================================================
+   Digital time readout
+   ============================================================ */
+.digital-time {
+  font-size: clamp(14px, 4vw, 20px);
+  font-weight: 200;
+  letter-spacing: 0.18em;
+  color: #606078;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  transition: color 0.3s ease;
+}
+
+/* ============================================================
+   Visibility: pause animation when tab is hidden (handled in JS,
+   but also dim the display as a visual cue)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  /*
+   * Honour the OS "reduce motion" preference. The RAF loop still
+   * runs (so the clock stays accurate) but we could opt to lower
+   * the update rate in JS if needed.
+   */
+  #clock {
+    image-rendering: auto;
+  }
+}
+
+/* ============================================================
+   Responsive tweaks
+   ============================================================ */
+@media (max-height: 500px) and (orientation: landscape) {
+  .clock-wrapper {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  #clock {
+    width: min(70vh, 300px);
+    height: min(70vh, 300px);
+  }
+}
